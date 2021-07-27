@@ -4,3 +4,18 @@
     font-size: 100%;
     box-sizing: border-box;
 }
+
+/* Loader */
+.loader{
+    background: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hidden */
+.hidden{
+    display: none;
+}
