@@ -1,12 +1,66 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap%27");
+* {
     margin: 0;
     padding: 0;
     font-size: 100%;
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    position: fixed;
+    top: 0.2vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #221958;
+    width: 70vw;
+    height: 7.5vh;
+}
+
+#logo {
+    font-family: "Lora", serif;
+    font-style: normal;
+    font-size: 3vw;
+    color: #ffffff;
+}
+
+#point {
+    color: #ffffff;
+    font-weight: 400%;
+}
+
+#header-anchors {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vh;
+}
+
+#fav-anchor,
+#load-anchor {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.3vw;
+    font-family: "Oswald", sans-serif;
+}
+
+#fav-anchor:hover,
+#load-anchor:hover {
+    color: #cacaca;
+}
+
+
 /* Loader */
-.loader{
+
+.loader {
     background: whitesmoke;
     height: 100vh;
     width: 100vw;
@@ -15,7 +69,35 @@
     align-items: center;
 }
 
+@media (max-width: 930px) {
+    header {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        height: 17vh;
+        justify-content: baseline;
+        align-items: center;
+    }
+    #logo {
+        width: 100%;
+        font-size: 5vh;
+    }
+    #header-anchors {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+    #fav-anchor,
+    #load-anchor {
+        font-size: 3vw;
+    }
+}
+
+
 /* Hidden */
-.hidden{
+
+.hidden {
     display: none;
 }
