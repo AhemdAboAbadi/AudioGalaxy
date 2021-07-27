@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap%27');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap%27");
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
 
 header {
     position: fixed;
-    top: .2vh;
+    top: 0.2vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -26,7 +26,7 @@ header {
 }
 
 #logo {
-    font-family: 'Lora', serif;
+    font-family: "Lora", serif;
     font-style: normal;
     font-size: 3vw;
     color: #ffffff;
@@ -49,12 +49,31 @@ header {
     color: #ffffff;
     text-decoration: none;
     font-size: 1.3vw;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 #fav-anchor:hover,
 #load-anchor:hover {
     color: #cacaca;
+}
+
+
+/* Loader */
+
+.loader {
+    background: whitesmoke;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Hidden */
+
+.hidden {
+    display: none;
 }
 
 @media (max-width: 930px) {
@@ -64,7 +83,7 @@ header {
         flex-direction: column;
         height: 17vh;
         justify-content: baseline;
-        align-items: center
+        align-items: center;
     }
     #logo {
         width: 100%;
