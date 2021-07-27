@@ -1,0 +1,23 @@
+{
+  "name": "AudioGalaxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G10/AudioGalaxy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G10/AudioGalaxy/issues"
+  },
+  "homepage": "https://github.com/GSG-G10/AudioGalaxy#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  }
+}
