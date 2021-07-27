@@ -69,13 +69,6 @@ header {
     align-items: center;
 }
 
-
-/* Hidden */
-
-.hidden {
-    display: none;
-}
-
 @media (max-width: 930px) {
     header {
         width: 70%;
@@ -100,4 +93,11 @@ header {
     #load-anchor {
         font-size: 3vw;
     }
+}
+
+
+/* Hidden */
+
+.hidden {
+    display: none;
 }
