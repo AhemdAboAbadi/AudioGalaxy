@@ -22,7 +22,7 @@ header {
   align-items: center;
   background-color: #221958;
   width: 70vw;
-  height: 7.5vh;
+  height: 6.5vh;
 }
 
 #logo {
@@ -42,6 +42,7 @@ header {
   justify-content: space-around;
   align-items: center;
   width: 50vh;
+  padding-left: 9rem;
 }
 
 #fav-anchor,
@@ -68,33 +69,53 @@ header {
   align-items: center;
 }
 
-@media (max-width: 930px) {
+
+@media (min-width: 930px) {
   header {
-    width: 70%;
+    width: 80%;
     display: flex;
-    flex-direction: column;
-    height: 17vh;
+    flex-direction:row;
+    height: 7vh;
     justify-content: baseline;
     align-items: center;
   }
   #logo {
     width: 100%;
-    font-size: 5vh;
+    font-size: 4vh;
+    padding-left: 1rem;
   }
   #header-anchors {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-  }
-  #fav-anchor,
-  #load-anchor {
-    font-size: 3vw;
+    padding-left: 5rem;
+
   }
 
 }
 
+@media (max-width: 600px){
+  header{
+    width: 95%;
+  }
+  .logo-div{
+    width: 30%;
+  }
+  #header-anchors{
+    width: 70%;
+    padding-left: 5rem;
+  }
+  #logo{
+    padding-left: 3rem;
+
+  }
+}
+#fav-anchor,
+#load-anchor {
+  font-size: 3vw;
+}
 /* Hidden */
 
 .hidden {
@@ -190,7 +211,7 @@ header {
     width:60% ;
   }
   .main-contenar{
-    margin-top: 7rem;
+    margin-top: 2.5rem;
   }
 }
 
@@ -209,7 +230,7 @@ header {
 
 /* pop button to top */
 .pop_up_to_top {
-  background: #fff;
+  background: transparent;
   width: 60px;
   height: 60px;
   position: fixed;
