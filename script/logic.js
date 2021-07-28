@@ -1,6 +1,10 @@
 // Fetch NASA articles
 const getArticles = () => {
     fetch(NasaAPI, (data) => {
+        console.log(data)
+        setInterval(() => {
+            loader.classList.add("hidden");
+        }, 2000)
         data.forEach((i) => {
             createArticle(i);
         });
@@ -18,11 +22,11 @@ const clearContainer = () => {
 
 // Pop up 
 const pop_up_to_top = document.querySelector(".pop_up_to_top");
-window.addEventListener("scroll", function () {
+window.addEventListener("scroll", function() {
     pop_up_to_top.classList.toggle("active", window.scrollY > 400);
 });
 
-pop_up_to_top.addEventListener("click", function () {
+pop_up_to_top.addEventListener("click", function() {
     window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -40,5 +44,3 @@ const getPictureOfDay = () => {
 };
 
 getPictureOfDay();
-
-
