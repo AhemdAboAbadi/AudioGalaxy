@@ -38,11 +38,11 @@ const NasaFunc = (() => {
       ThirdLine.appendChild(ParagraphArticle);
       FourthLine.appendChild(ParagraphDate);
       Btn.appendChild(fontAwesome);
-      FirstLine.appendChild(Btn)
+      FirstLine.appendChild(Btn);
       container.appendChild(mainFigure);
 
       //-------------Append Elements---------------------------
-      container.classList.add("main-contenar")
+      container.classList.add("main-contenar");
       mainFigure.classList.add("main-contenar-content");
       imgD.classList.add("imges0");
       DivImg.classList.add("contenar-img");
@@ -57,7 +57,7 @@ const NasaFunc = (() => {
       FourthLine.classList.add("fourth-line");
       ParagraphDate.classList.add("p-date");
       ParagraphFavorites.textContent = "Add To Favorites";
-      fontAwesome.classList.add("fa" ,"fa-volume-up");
+      fontAwesome.classList.add("fa", "fa-volume-up");
       fontAwesome.setAttribute("aria-hidden", "true");
 
       // Btn.createTextNode('<i class="fa fa-volume-up" aria-hidden="true"c></i>')
@@ -73,7 +73,6 @@ const NasaFunc = (() => {
     });
   });
 })();
-
 
 const pop_up_to_top = document.querySelector(".pop_up_to_top");
 window.addEventListener("scroll", function () {
