@@ -1,81 +1,85 @@
-const body = document.querySelector("body");
-const container = document.createElement("div");
-body.appendChild(container);
-const loadMore = document.getElementById("load-anchor");
 const loader = document.querySelector(".loader");
-const welcoming = document.getElementById("welcoming");
-const title = document.querySelector(".title");
-const picture = document.querySelector(".picture");
-const date = document.querySelector(".date");
-const greetNow = document.getElementById("timeNow");
-const tts = window.speechSynthesis;
+const timeNow = document.getElementById("timeNow");
+//Operating functions
+let selector = (select) => {
+    return document.querySelector(select);
+};
 
-const readArticle = (id) => {
-    fetch(`https://api.nasa.gov/planetary/apod?count=10&api_key=29r852l7qXSPuClARF1GnNcuC2aL2ybXHzXS2gOk`, (data)=>{
-        const text = data[id].explanation;
-        console.log(text);
-        const toSpeack = new SpeechSynthesisUtterance(`${text}`);
-        console.log(toSpeack,"toSpeack");
-        console.log(tts,"tts");
-        const voice = tts.getVoices()[1];
-        toSpeack.voice = voice;
-       tts.speak(toSpeack);
-    })
-}
-const createArticle = (i,id) => {
-    //-----------------Creat Elements------------------------
-    const mainFigure = document.createElement("figure");
-    const DivImg = document.createElement("div");
-    const imgD = document.createElement("img");
-    const ContainerContent = document.createElement("div");
-    const FirstLine = document.createElement("div");
-    const H2 = document.createElement("h2");
-    const Btn = document.createElement("button");
-   
-    const SecondLine = document.createElement("div");
-    const ParagraphFavorites = document.createElement("a");
-    const ThirdLine = document.createElement("div");
-    const ParagraphArticle = document.createElement("p");
-    const FourthLine = document.createElement("div");
-    const ParagraphDate = document.createElement("p");
-    const fontAwesome = document.createElement("i");
+const creatElement = (ele) => {
+    return document.createElement(ele);
+};
 
-    //---------------Append Childs---------------------------
-    container.appendChild(mainFigure);
+const appendElement = (parent, child) => {
+    return parent.appendChild(child);
+};
+
+const addClass = (element, className) => {
+    return element.classList.add(className);
+};
+
+// HTML Elements
+const container = creatElement("div");
+selector("body").appendChild(container);
+
+const createArticle = (i) => {
+    container.classList.add("main-contenar");
+
+    // Card
+    const mainFigure = creatElement("figure");
+    addClass(mainFigure, "main-contenar-content");
+    appendElement(container, mainFigure);
+
+    // Image
+    const DivImg = creatElement("div");
+    addClass(DivImg, "contenar-img");
+    const imgD = creatElement("img");
+    addClass(imgD, "imges0");
+    appendElement(DivImg, imgD);
+
+    // Things bellow an image
+    const ContainerContent = creatElement("div");
+    addClass(ContainerContent, "contenar-content");
+    const FirstLine = creatElement("div");
+    addClass(FirstLine, "first-line");
+    const H2 = creatElement("h2");
+    H2.classList.add("h2-title");
+
+    //Sound Button
+    const fontAwesome = creatElement("i");
+    addClass(fontAwesome, "fa", "fa-volume-up");
+    fontAwesome.setAttribute("aria-hidden", "true");
+    const Btn = creatElement("button");
+    Btn.classList.add("volume-btn");
+    appendElement(Btn, fontAwesome);
+
+    //Button add favorites
+    const SecondLine = creatElement("div");
+    addClass(SecondLine, "second-line");
+    const ParagraphFavorites = creatElement("button");
+    addClass(ParagraphFavorites, "p-add-to-favorites");
+    ParagraphFavorites.textContent = "Add To Favorites";
+    appendElement(SecondLine, ParagraphFavorites);
+
+    //Article
+    const ThirdLine = creatElement("div");
+    addClass(ThirdLine, "Third-line");
+    const ParagraphArticle = creatElement("p");
+    addClass(ParagraphArticle, "p-article");
+    appendElement(ThirdLine, ParagraphArticle);
+
+    //Date
+    const FourthLine = creatElement("div");
+    addClass(FourthLine, "fourth-line");
+    const ParagraphDate = creatElement("p");
+    addClass(ParagraphDate, "p-date");
+    appendElement(FourthLine, ParagraphDate);
+
     mainFigure.append(DivImg, ContainerContent);
-    DivImg.appendChild(imgD);
     ContainerContent.append(FirstLine, SecondLine, ThirdLine, FourthLine);
     FirstLine.append(H2, Btn);
-    SecondLine.appendChild(ParagraphFavorites);
-    ThirdLine.appendChild(ParagraphArticle);
-    FourthLine.appendChild(ParagraphDate);
-    Btn.appendChild(fontAwesome);
-    container.appendChild(mainFigure);
 
-    //-------------Append Elements---------------------------
-    container.classList.add("main-contenar");
-    mainFigure.classList.add("main-contenar-content");
-    imgD.classList.add("imges0");
-    DivImg.classList.add("contenar-img");
-    ContainerContent.classList.add("contenar-content");
-    FirstLine.classList.add("first-line");
-    SecondLine.classList.add("second-line");
-    ThirdLine.classList.add("Third-line");
-    Btn.classList.add("volume-btn");
-    Btn.setAttribute("id", `${id}`);
-      Btn.addEventListener("click", (e) => {
-        readArticle(id);
-    })
-    H2.classList.add("h2-title");
-    ParagraphFavorites.classList.add("p-add-to-favorites");
-    ParagraphArticle.classList.add("p-article");
-    FourthLine.classList.add("fourth-line");
-    ParagraphDate.classList.add("p-date");
-    ParagraphFavorites.textContent = "Add To Favorites";
-    fontAwesome.classList.add("fa", "fa-volume-up");
-    fontAwesome.setAttribute("aria-hidden", "true");
-
-    if (i.url == undefined || i.url == "" || i.media_type == "video") {
+    let unique = i.url;
+    if (unique == undefined || unique == "" || i.media_type == "video") {
         return;
     } else {
         imgD.src = i.url;
@@ -84,3 +88,22 @@ const createArticle = (i,id) => {
         ParagraphDate.textContent = i.date;
     }
 };
+const clearContainer = () => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+        loader.classList.remove("hidden");
+    }
+};
+// Pop up
+const pop_up_to_top = document.querySelector(".pop_up_to_top");
+window.addEventListener("scroll", function() {
+    pop_up_to_top.classList.toggle("active", window.scrollY > 400);
+});
+
+pop_up_to_top.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+});
+timeNow.textContent = greetings(new Date().getTime());
