@@ -22,6 +22,13 @@ const clearContainer = () => {
 
     };
 }
+const welcomingText = () => {
+    const today = new Date();
+    const time = today.getHours();
+    const greetingMess = time < 12 ? "Good Morning" : "Good Evening";
+    greetNow.textContent = greetingMess;
+}
+welcomingText();
 
 const pop_up_to_top = document.querySelector(".pop_up_to_top");
 window.addEventListener("scroll", function() {

@@ -7,6 +7,7 @@ const welcoming = document.getElementById("welcoming");
 const title = document.querySelector(".title");
 const picture = document.querySelector(".picture");
 const date = document.querySelector(".date");
+const greetNow = document.getElementById("timeNow");
 
 const createArticle = (i) => {
     //-----------------Creat Elements------------------------
