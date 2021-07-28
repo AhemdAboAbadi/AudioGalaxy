@@ -1,11 +1,10 @@
 const getArticles = () => {
     fetch(NasaAPI, (data) => {
-        console.log(data)
         setInterval(() => {
             loader.classList.add("hidden");
         }, 2000)
-        data.forEach((i) => {
-            createArticle(i);
+        data.forEach((i,index) => {
+            createArticle(i,index);
         });
     });
 };
@@ -52,3 +51,4 @@ const getPictureOfDay = () => {
 };
 
 getPictureOfDay();
+

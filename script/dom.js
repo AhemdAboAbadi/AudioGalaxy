@@ -8,8 +8,21 @@ const title = document.querySelector(".title");
 const picture = document.querySelector(".picture");
 const date = document.querySelector(".date");
 const greetNow = document.getElementById("timeNow");
+const tts = window.speechSynthesis;
 
-const createArticle = (i) => {
+const readArticle = (id) => {
+    fetch(`https://api.nasa.gov/planetary/apod?count=10&api_key=29r852l7qXSPuClARF1GnNcuC2aL2ybXHzXS2gOk`, (data)=>{
+        const text = data[id].explanation;
+        console.log(text);
+        const toSpeack = new SpeechSynthesisUtterance(`${text}`);
+        console.log(toSpeack,"toSpeack");
+        console.log(tts,"tts");
+        const voice = tts.getVoices()[1];
+        toSpeack.voice = voice;
+       tts.speak(toSpeack);
+    })
+}
+const createArticle = (i,id) => {
     //-----------------Creat Elements------------------------
     const mainFigure = document.createElement("figure");
     const DivImg = document.createElement("div");
@@ -18,6 +31,7 @@ const createArticle = (i) => {
     const FirstLine = document.createElement("div");
     const H2 = document.createElement("h2");
     const Btn = document.createElement("button");
+   
     const SecondLine = document.createElement("div");
     const ParagraphFavorites = document.createElement("a");
     const ThirdLine = document.createElement("div");
@@ -48,6 +62,10 @@ const createArticle = (i) => {
     SecondLine.classList.add("second-line");
     ThirdLine.classList.add("Third-line");
     Btn.classList.add("volume-btn");
+    Btn.setAttribute("id", `${id}`);
+      Btn.addEventListener("click", (e) => {
+        readArticle(id);
+    })
     H2.classList.add("h2-title");
     ParagraphFavorites.classList.add("p-add-to-favorites");
     ParagraphArticle.classList.add("p-article");
