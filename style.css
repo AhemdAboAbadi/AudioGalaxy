@@ -30,7 +30,7 @@ body {
 
 .navigation-container {
     position: fixed;
-    top: 0;
+    top: 1rem;
     display: flex;
     justify-content: center;
     height: 11%;
