@@ -2,77 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" type="image/png" href="https://s2.googleusercontent.com/s2/favicons?domain=www.nasa.gov" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="icon" type="image/png" href="https://s2.googleusercontent.com/s2/favicons?domain=www.nasa.gov" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <title>AudioGalaxy</title>
+  <title>AudioGalaxy</title>
 </head>
 
 <body>
-    <!-- Loader -->
-    <div class="loader hidden">
-        <img src="./images/rocket.svg" alt="Rocket Loading animation" />
-    </div>
-    <header>
-      <div class="logo-div">
-        <span id="logo">AudioGalaxy</span>
-      </div>
-      <div id="header-anchors">
-        <a href="#" id="fav-anchor">Favorites</a>
-        <h3 id="point">&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</h3>
-        <a href="#" id="load-anchor">Load More</a>
-      </div>
-    </header>
+  <!-- Loader -->
+  <div class="loader hidden">
+    <img src="./images/rocket.svg" alt="Rocket Loading animation" />
+  </div>
 
-    <!-- pop to up -->
-    <div class="pop_up_to_top">
-        <svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
+  <header class="navigation-container">
+    <span class="background"></span>
+    <!-- Results Nav -->
+    <span class="navigation-items" id="resultsNav">
+      <h3 class="clickable">Favorites</h3>
+      <h3>&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</h3>
+      <h3 class="clickable" id="load-anchor">Load More</h3>
+    </span>
+    <!-- Favorites Nav -->
+    <span class="navigation-items hidden" id="favotitesNav">
+      <h3 class="clickable">Load More NASA Images</h3>
+    </span>
+  </header>
+
+  <section class="picture-of-day-container">
+    <div class="sub-heading-container">
+      <h2 class='sub-heading'>Astronomy Picture of the Day</h2>
+      <p><a href="https://apod.nasa.gov/apod/archivepix.html">Discover the cosmos!</a> Each day a different image or
+        photograph of our fascinating universe is featured.</p>
+      <p class="date"></p>
+    </div>
+    <img class="picture" alt="galaxy picture of day">
+    <p class="title"></p>
+    <p class="date"></p>
+  </section>
+
+  <div class="pop_up_to_top"> <svg id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512"
+      width="512" xmlns="http://www.w3.org/2000/svg">
+      <g>
         <g>
           <g>
             <g>
-              <g>
-                <path
-                  d="m342.092 278.119h-168.146v-121.339h-70.148l155.097-156.78 149.308 156.78h-66.111z"
-                />
-              </g>
+              <path d="m342.092 278.119h-168.146v-121.339h-70.148l155.097-156.78 149.308 156.78h-66.111z" />
+            </g>
+          </g>
+        </g>
+        <g>
+          <g>
+            <g>
+              <path d="m173.946 447.144h29.28v30.217h-29.28z" />
+            </g>
+          </g>
+          <g>
+            <g>
+              <path d="m173.946 321.666h29.28v95.136h-29.28z" />
+            </g>
+          </g>
+          <g>
+            <g>
+              <path d="m311.875 447.144h30.217v30.217h-30.217z" />
+            </g>
+          </g>
+          <g>
+            <g>
+              <path d="m311.875 321.666h30.217v95.136h-30.217z" />
             </g>
           </g>
           <g>
             <g>
               <g>
-                <path d="m173.946 447.144h29.28v30.217h-29.28z" />
-              </g>
-            </g>
-            <g>
-              <g>
-                <path d="m173.946 321.666h29.28v95.136h-29.28z" />
-              </g>
-            </g>
-            <g>
-              <g>
-                <path d="m311.875 447.144h30.217v30.217h-30.217z" />
-              </g>
-            </g>
-            <g>
-              <g>
-                <path d="m311.875 321.666h30.217v95.136h-30.217z" />
-              </g>
-            </g>
-            <g>
-              <g>
-                <g>
-                  <path d="m242.442 371.761h30.217v140.239h-30.217z" />
-                </g>
+                <path d="m242.442 371.761h30.217v140.239h-30.217z" />
               </g>
             </g>
           </g>
         </g>
-      </svg>
-    </div>
+      </g>
+    </svg></div>
+
 </body>
 <script src="./script/fetch.js"></script>
 <script src="./script/dom.js"></script>
