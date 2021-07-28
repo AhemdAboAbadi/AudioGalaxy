@@ -109,7 +109,8 @@ header {
   width: 55%;
   height: 120vh;
   margin-top:1.8rem ;
- */
+} */
+
 
 .main-contenar-content {
   display: flex;
@@ -158,11 +159,12 @@ header {
   align-items: center;
   width: 96%;
 }
-/* .volume-btn {
+.volume-btn {
   border: none;
   display: inline;
   opacity: 0.7;
-} */
+  background-color: transparent;
+}
 .second-line {
   display: flex;
   justify-content: space-between;
