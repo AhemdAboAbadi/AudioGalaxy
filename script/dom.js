@@ -58,8 +58,7 @@ const createArticle = (i,id) => {
     Btn.addEventListener("click", (e) => {
         fetch(`https://api.nasa.gov/planetary/apod?count=10&api_key=29r852l7qXSPuClARF1GnNcuC2aL2ybXHzXS2gOk`, (data)=>{
         const text = data[id].explanation;
-        console.log(text);
-        const toSpeack = new SpeechSynthesisUtterance(`Elham Fadel`);
+        const toSpeack = new SpeechSynthesisUtterance(`${text}`);
         console.log(toSpeack,"toSpeack");
         console.log(tts,"tts");
         const voice = tts.getVoices()[1];
