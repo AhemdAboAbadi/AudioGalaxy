@@ -49,7 +49,7 @@ const NasaFunc = (() => {
       ContainerContent.classList.add("contenar-content");
       FirstLine.classList.add("first-line");
       SecondLine.classList.add("second-line");
-      ThirdLine.classList.add("Third-line");
+      ThirdLine.classList.add("third-line");
       Btn.classList.add("volume-btn");
       H2.classList.add("h2-title");
       ParagraphFavorites.classList.add("p-add-to-favorites");
