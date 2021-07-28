@@ -1,7 +1,9 @@
+const loader = document.querySelector(".loader");
+const timeNow = document.getElementById("timeNow");
 //Operating functions
 let selector = (select) => {
-    return document.querySelector(select)
-}
+    return document.querySelector(select);
+};
 
 const creatElement = (ele) => {
     return document.createElement(ele);
@@ -13,15 +15,13 @@ const appendElement = (parent, child) => {
 
 const addClass = (element, className) => {
     return element.classList.add(className);
-}
+};
 
 // HTML Elements
 const container = creatElement("div");
-selector('body').appendChild(container);
-
+selector("body").appendChild(container);
 
 const createArticle = (i) => {
-
     container.classList.add("main-contenar");
 
     // Card
@@ -52,7 +52,7 @@ const createArticle = (i) => {
     Btn.classList.add("volume-btn");
     appendElement(Btn, fontAwesome);
 
-    //Button add favorites 
+    //Button add favorites
     const SecondLine = creatElement("div");
     addClass(SecondLine, "second-line");
     const ParagraphFavorites = creatElement("button");
@@ -74,11 +74,9 @@ const createArticle = (i) => {
     addClass(ParagraphDate, "p-date");
     appendElement(FourthLine, ParagraphDate);
 
-
     mainFigure.append(DivImg, ContainerContent);
     ContainerContent.append(FirstLine, SecondLine, ThirdLine, FourthLine);
     FirstLine.append(H2, Btn);
-
 
     let unique = i.url;
     if (unique == undefined || unique == "" || i.media_type == "video") {
@@ -90,4 +88,22 @@ const createArticle = (i) => {
         ParagraphDate.textContent = i.date;
     }
 };
+const clearContainer = () => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+        loader.classList.remove("hidden");
+    }
+};
+// Pop up
+const pop_up_to_top = document.querySelector(".pop_up_to_top");
+window.addEventListener("scroll", function() {
+    pop_up_to_top.classList.toggle("active", window.scrollY > 400);
+});
 
+pop_up_to_top.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+});
+timeNow.textContent = greetings(new Date().getTime());
