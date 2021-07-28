@@ -1,5 +1,9 @@
 const getArticles = () => {
     fetch(NasaAPI, (data) => {
+        console.log(data)
+        setInterval(() => {
+            loader.classList.add("hidden");
+        }, 2000)
         data.forEach((i) => {
             createArticle(i);
         });
@@ -11,7 +15,12 @@ loadMore.addEventListener("click", () => {
     getArticles();
 })
 const clearContainer = () => {
-    while (container.firstChild) container.removeChild(container.firstChild);
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+        loader.classList.remove("hidden");
+        welcoming.textContent = "Loading ..."
+
+    };
 }
 
 const pop_up_to_top = document.querySelector(".pop_up_to_top");

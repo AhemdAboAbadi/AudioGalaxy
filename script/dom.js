@@ -2,6 +2,8 @@ const body = document.querySelector("body");
 const container = document.createElement("div");
 body.appendChild(container);
 const loadMore = document.getElementById("load-anchor");
+const loader = document.querySelector(".loader");
+const welcoming = document.getElementById("welcoming");
 
 const createArticle = (i) => {
     //-----------------Creat Elements------------------------
