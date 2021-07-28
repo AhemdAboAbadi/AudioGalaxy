@@ -1,18 +1,18 @@
 const getArticles = () => {
-    fetch(NasaAPI, (data) => {
-        data.forEach((i) => {
-            createArticle(i);
-        });
+  fetch(NasaAPI, (data) => {
+    data.forEach((i) => {
+      createArticle(i);
     });
+  });
 };
 getArticles();
 loadMore.addEventListener("click", () => {
-    clearContainer();
-    getArticles();
-})
+  clearContainer();
+  getArticles();
+});
 const clearContainer = () => {
-    while (container.firstChild) container.removeChild(container.firstChild);
-}
+  while (container.firstChild) container.removeChild(container.firstChild);
+};
 
 const pop_up_to_top = document.querySelector(".pop_up_to_top");
 window.addEventListener("scroll", function () {
