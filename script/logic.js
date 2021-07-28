@@ -18,7 +18,7 @@ const clearContainer = () => {
     while (container.firstChild) {
         container.removeChild(container.firstChild)
         loader.classList.remove("hidden");
-        welcoming.textContent = "Loading ..."
+        welcoming.textContent = " Loading More ..."
 
     };
 }
