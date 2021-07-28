@@ -2,6 +2,9 @@ const body = document.querySelector("body");
 const container = document.createElement("div");
 body.appendChild(container);
 const loadMore = document.getElementById("load-anchor");
+const title = document.querySelector(".title");
+const picture = document.querySelector(".picture");
+const date = document.querySelector(".date");
 
 const createArticle = (i) => {
   //-----------------Creat Elements------------------------
