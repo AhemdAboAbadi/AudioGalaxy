@@ -22,7 +22,7 @@ const addClass = (element, className) => {
 const container = creatElement("div");
 selector("body").appendChild(container);
 
-const createArticle = (i,id) => {
+const createArticle = (i, id) => {
     container.classList.add("main-contenar");
 
     // Card
@@ -54,19 +54,18 @@ const createArticle = (i,id) => {
     addClass(fontAwesome, "fa-volume-up");
     fontAwesome.setAttribute("aria-hidden", "true");
     appendElement(Btn, fontAwesome);
-    appendElement(FirstLine,Btn);
+    appendElement(FirstLine, Btn);
     Btn.addEventListener("click", (e) => {
-        fetch(`https://api.nasa.gov/planetary/apod?count=10&api_key=29r852l7qXSPuClARF1GnNcuC2aL2ybXHzXS2gOk`, (data)=>{
-        const text = data[id].explanation;
-        const toSpeack = new SpeechSynthesisUtterance(`${text}`);
-        console.log(toSpeack,"toSpeack");
-        console.log(tts,"tts");
-        const voice = tts.getVoices()[1];
-        toSpeack.voice = voice;
-       tts.speak(toSpeack);
+        fetch(`https://api.nasa.gov/planetary/apod?count=10&api_key=29r852l7qXSPuClARF1GnNcuC2aL2ybXHzXS2gOk`, (data) => {
+            window.speechSynthesis.cancel();
+            const text = data[id].explanation;
+            const toSpeack = new SpeechSynthesisUtterance(`${text}`);
+            const voice = tts.getVoices()[1];
+            toSpeack.voice = voice;
+            tts.speak(toSpeack);
+        })
     })
-    })
-    
+
     //Button add favorites
     const SecondLine = creatElement("div");
     addClass(SecondLine, "second-line");
