@@ -34,3 +34,15 @@ pop_up_to_top.addEventListener("click", function() {
         behavior: "smooth",
     });
 });
+
+
+const getPictureOfDay = () => {
+    fetch(NasaPicOfDay, (data) => {
+        title.textContent = data["title"];
+        picture.src = data["url"];
+        date.textContent = data["date"];
+
+    });
+};
+
+getPictureOfDay();
