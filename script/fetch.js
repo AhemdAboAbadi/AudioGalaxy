@@ -24,8 +24,8 @@ const getArticles = () => {
         setInterval(() => {
             loader.classList.add("hidden");
         }, 2000);
-        data.forEach((i) => {
-            createArticle(i);
+        data.forEach((i,index) => {
+            createArticle(i,index);
         });
     });
 };
@@ -43,3 +43,6 @@ selector("#load-anchor").addEventListener("click", () => {
     clearContainer();
     getArticles();
 });
+const readArticle = (id) => {
+    
+}

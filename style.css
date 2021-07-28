@@ -225,6 +225,7 @@ body {
         display: inline;
         opacity: 0.7;
         background-color: transparent;
+        cursor: pointer;
     }
     .volume-btn:hover {
         opacity: 0.9;
