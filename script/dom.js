@@ -120,4 +120,4 @@ pop_up_to_top.addEventListener("click", function() {
         behavior: "smooth",
     });
 });
-timeNow.textContent = greetings(new Date().getTime());
+timeNow.textContent = greetings(new Date().getHours());
