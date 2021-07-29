@@ -17,7 +17,7 @@
     "url": "https://github.com/GSG-G10/AudioGalaxy/issues"
   },
   "homepage": "https://github.com/GSG-G10/AudioGalaxy#readme",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^27.0.6"
   }
 }

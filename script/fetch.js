@@ -8,7 +8,7 @@ const fetch = (url, cb) => {
         if (xhr.readyState === 4 && xhr.status === 200) {
             cb(JSON.parse(xhr.responseText));
         } else if (xhr.status === 404) {
-            alertMess("ERROR");
+            return;
         }
     };
     xhr.open("GET", url);
@@ -16,33 +16,30 @@ const fetch = (url, cb) => {
 };
 
 const alertMess = (error) => {
-    alert("404 Not found");
+    return;
 };
 const getArticles = () => {
     fetch(NasaAPI, (data) => {
-        console.log(data);
         setInterval(() => {
             loader.classList.add("hidden");
         }, 2000);
-        data.forEach((i,index) => {
-            createArticle(i,index);
+        data.forEach((i, index) => {
+            createArticle(i, index);
         });
     });
 };
 getArticles();
-const getPictureOfDay = () => {
+
+(function getPictureOfDay() {
     fetch(NasaPicOfDay, (data) => {
         selector(".title").textContent = data["title"];
         selector(".picture").src = data["url"];
         selector(".date").textContent = data["date"];
     });
-};
-getPictureOfDay();
+})();
+
 
 selector("#load-anchor").addEventListener("click", () => {
     clearContainer();
     getArticles();
 });
-const readArticle = (id) => {
-    
-}
