@@ -69,7 +69,7 @@ const createArticle = (i, id) => {
   //Button add favorites
   const SecondLine = creatElement("div");
   addClass(SecondLine, "second-line");
-  const ParagraphFavorites = creatElement("button");
+  const ParagraphFavorites = creatElement("a");
   addClass(ParagraphFavorites, "p-add-to-favorites");
   ParagraphFavorites.textContent = "Add To Favorites";
   appendElement(SecondLine, ParagraphFavorites);
